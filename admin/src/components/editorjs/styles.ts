@@ -55,7 +55,7 @@ export const SStyleWrapper = styled(Box)`
 
   .codex-editor {
     padding: 16px;
-    font-size: 1rem;
+    font-size: 16px;
     a {
       color: ${({ theme }) => theme.colors.secondary500};
       &:hover {
@@ -116,7 +116,7 @@ export const SStyleWrapper = styled(Box)`
   > div + p {
     width: 100%;
     padding-top: 12px;
-    font-size: 1.2rem;
+    font-size: 18px;
     line-height: normal;
     white-space: nowrap;
     overflow: hidden;
@@ -133,7 +133,7 @@ export const SStyleWrapper = styled(Box)`
     }
   }
   .cdx-input.image-tool__caption {
-    font-size: 0.9rem;
+    font-size: 16px;
     line-height: 1.5;
   }
   .Box {

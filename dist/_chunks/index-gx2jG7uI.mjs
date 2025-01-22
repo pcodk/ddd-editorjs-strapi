@@ -417,38 +417,13 @@ const index = {
         defaultMessage: "An Editor field"
       },
       components: {
-        Input: async () => import("./Editorjs-DvGQ2m2Y.mjs").then((module) => ({
+        Input: async () => import("./Editorjs-DjgA7fqf.mjs").then((module) => ({
           default: module.Editorjs
         }))
       },
       options: {
         base: [],
         advanced: [
-          {
-            sectionTitle: {
-              id: "editorjs.options.search",
-              defaultMessage: "Vocabulary Search (only for development)"
-            },
-            items: [
-              {
-                name: "options.token",
-                type: "text",
-                intlLabel: {
-                  id: "editorjs.options.token",
-                  defaultMessage: "Bearer token (only for development)"
-                  // we dont need token when on own server
-                }
-              },
-              {
-                name: "options.basePath",
-                type: "text",
-                intlLabel: {
-                  id: "editorjs.options.basePath",
-                  defaultMessage: "overwrite basePath (ie. http://localhost:1337/api/vocabularies) (only for development)"
-                }
-              }
-            ]
-          },
           {
             sectionTitle: {
               id: "editorjs.tools.settings",
@@ -485,7 +460,7 @@ const index = {
               {
                 name: "options.image",
                 type: "checkbox",
-                defaultValue: false,
+                defaultValue: true,
                 intlLabel: {
                   id: "editorjs.tools.settings.image",
                   defaultMessage: "Image"
