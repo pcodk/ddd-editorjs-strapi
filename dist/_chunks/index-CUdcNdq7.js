@@ -1,5 +1,6 @@
-import { jsx } from "react/jsx-runtime";
-import { PuzzlePiece } from "@strapi/icons";
+"use strict";
+const jsxRuntime = require("react/jsx-runtime");
+const icons = require("@strapi/icons");
 const __variableDynamicImportRuntimeHelper = (glob, path, segs) => {
   const v2 = glob[path];
   if (v2) {
@@ -16,7 +17,7 @@ const __variableDynamicImportRuntimeHelper = (glob, path, segs) => {
     );
   });
 };
-const PluginIcon = () => /* @__PURE__ */ jsx(PuzzlePiece, {});
+const PluginIcon = () => /* @__PURE__ */ jsxRuntime.jsx(icons.PuzzlePiece, {});
 const PLUGIN_ID = "ddd-editorjs-strapi-plugin";
 const getTranslation = (id) => `${PLUGIN_ID}.${id}`;
 const prefixPluginTranslations = (trad, pluginId) => {
@@ -417,8 +418,8 @@ const index = {
         defaultMessage: "An Editor field"
       },
       components: {
-        Input: async () => import("./Editorjs-DjgA7fqf.mjs").then((module) => ({
-          default: module.Editorjs
+        Input: async () => Promise.resolve().then(() => require("./Editorjs-COEnKh3T.js")).then((module2) => ({
+          default: module2.Editorjs
         }))
       },
       options: {
@@ -585,7 +586,7 @@ const index = {
     const { locales } = app;
     const importedTranslations = await Promise.all(
       locales.map((locale) => {
-        return __variableDynamicImportRuntimeHelper(/* @__PURE__ */ Object.assign({ "./translations/en.json": () => import("./en-BLf-MnVQ.mjs") }), `./translations/${locale}.json`, 3).then(({ default: data }) => {
+        return __variableDynamicImportRuntimeHelper(/* @__PURE__ */ Object.assign({ "./translations/en.json": () => Promise.resolve().then(() => require("./en-DEf0MypJ.js")) }), `./translations/${locale}.json`, 3).then(({ default: data }) => {
           return {
             data: prefixPluginTranslations(data, PLUGIN_ID),
             locale
@@ -601,8 +602,6 @@ const index = {
     return importedTranslations;
   }
 };
-export {
-  PLUGIN_ID as P,
-  RESOLVE_CONFIG as R,
-  index as i
-};
+exports.PLUGIN_ID = PLUGIN_ID;
+exports.RESOLVE_CONFIG = RESOLVE_CONFIG;
+exports.index = index;
