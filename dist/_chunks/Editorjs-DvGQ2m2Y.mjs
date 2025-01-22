@@ -5,7 +5,7 @@ import React__default, { useContext, useRef, useCallback, useDebugValue, useEffe
 import { useIntl } from "react-intl";
 import { useFetchClient, useNotification, useStrapiApp } from "@strapi/strapi/admin";
 import ReactDOM from "react-dom";
-import { P as PLUGIN_ID, R as RESOLVE_CONFIG } from "./index-Cr8U3eRc.mjs";
+import { P as PLUGIN_ID, R as RESOLVE_CONFIG } from "./index-BEVHWwa-.mjs";
 import EditorJS from "@editorjs/editorjs";
 import VocabularyAutocomplete from "editorjs-vocabularytune";
 import styled from "styled-components";
