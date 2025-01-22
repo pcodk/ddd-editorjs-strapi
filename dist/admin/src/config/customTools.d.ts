@@ -1,0 +1,36 @@
+type ToolOptions = {
+    header?: boolean;
+    paragraph?: boolean;
+    list?: boolean;
+    checklist?: boolean;
+    embed?: boolean;
+    table?: boolean;
+    warning?: boolean;
+    code?: boolean;
+    link_tool?: boolean;
+    raw?: boolean;
+    quote?: boolean;
+    marker?: boolean;
+    delimiter?: boolean;
+    inlineCode?: boolean;
+    nestedList?: boolean;
+};
+type ToolConfig = {
+    header?: any;
+    paragraph?: any;
+    list?: any;
+    checklist?: any;
+    embed?: any;
+    table?: any;
+    warning?: any;
+    code?: any;
+    link_tool?: any;
+    raw?: any;
+    quote?: any;
+    marker?: any;
+    delimiter?: any;
+    inlineCode?: any;
+    nestedList?: any;
+};
+export declare const customTools: (options?: ToolOptions, config?: ToolConfig) => {};
+export {};

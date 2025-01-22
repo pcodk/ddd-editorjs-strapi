@@ -2,10 +2,10 @@ import EditorJS, { API, ToolConstructable, ToolSettings } from '@editorjs/editor
 import VocabularyAutocomplete from 'editorjs-vocabularytune';
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { MessageDescriptor } from 'react-intl';
-import { PLUGIN_ID } from 'src/pluginId';
 import styled from 'styled-components';
 import { customTools } from '../../config/customTools';
 import { requiredTools } from '../../config/requiredTools';
+import { PLUGIN_ID } from '../../pluginId';
 import { MediaLibAdapter } from '../medialib/adapter';
 import { MediaLibAttachesAdapter } from '../medialib/adapterAttaches';
 import { MediaLibComponent } from '../medialib/Component';
