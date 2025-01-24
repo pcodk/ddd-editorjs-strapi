@@ -40,6 +40,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
     // We need to remake it, so it better matches the format expected
     const data = res.map((item) => ({
       ...item,
+      id: item.documentId,
       attributes: {
         ...item,
         id: item.documentId,
