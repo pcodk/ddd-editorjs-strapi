@@ -42,6 +42,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
       ...item,
       attributes: {
         ...item,
+        id: item.documentId,
         Name: item.name,
         Description: item.description,
         Image: item.image,
