@@ -60,8 +60,10 @@ const upload = ({ strapi: strapi2 }) => ({
     });
     const data = res.map((item) => ({
       ...item,
+      id: item.documentId,
       attributes: {
         ...item,
+        id: item.documentId,
         Name: item.name,
         Description: item.description,
         Image: item.image
