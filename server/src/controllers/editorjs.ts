@@ -49,6 +49,7 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
         Image: item.image,
       },
     }));
+    console.log('datadota', data);
 
     ctx.send({ data });
   },
