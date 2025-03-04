@@ -14,7 +14,7 @@ This will build the plugin and create a new dist folder.
 
 3. push to master
 
-4. It seems you have to delete the plugin from the strapi admin, and then re-add it.
+4. It seems you have to delete the plugin (package.json) from the strapi admin, and then re-add it.
 
 ## Good reads for the complications this plugin has faced:
 
