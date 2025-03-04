@@ -29,8 +29,9 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
   vocabulary: async (ctx) => {
     const { query } = ctx.query;
 
-    const res = await strapi.entityService.findMany('api::vocabulary.vocabulary', {
+    const res = await strapi.documents('api::vocabulary.vocabulary').findMany({
       filters: {
+        domainKey: 'all',
         name: {
           $containsi: query,
         },
