@@ -1,15 +1,16 @@
 // Created using this guide: https://walkthrough.so/pblc/QCawSCKwOQLn/creating-a-custom-editorjs-block-tool-with-react?sn=4
 
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 interface Data {
   linkText?: string;
   url?: string;
+  trackingLabel?: string;
 }
 
 export class LinkButton {
-  private data: Data = {};
-  private nodes: { holder: HTMLElement | null } = { holder: null };
+  private nodes: { holder: HTMLElement | null; data: Data } = { holder: null, data: {} };
 
   static get toolbox() {
     return {
@@ -19,7 +20,7 @@ export class LinkButton {
   }
 
   constructor({ data }: { data: Data }) {
-    this.data = data;
+    this.nodes.data = data;
   }
 
   render() {
@@ -27,19 +28,16 @@ export class LinkButton {
     this.nodes.holder = rootNode;
 
     const onDataChange = (newData: Data) => {
-      this.data = {
-        ...this.data,
-        ...newData,
-      };
+      this.nodes.data = newData;
     };
 
-    ReactDOM.render(<Btn onDataChange={onDataChange} data={this.data} />, rootNode);
+    ReactDOM.render(<Btn onDataChange={onDataChange} data={this.nodes.data} />, rootNode);
 
     return this.nodes.holder;
   }
 
   save() {
-    return this.data;
+    return this.nodes.data;
   }
 }
 
@@ -49,14 +47,18 @@ interface BtnProps {
 }
 
 function Btn({ onDataChange, data }: BtnProps) {
+  const [hasTracking, setHasTracking] = React.useState(!!data.trackingLabel);
+
+  const handleChangeValue = (val: Partial<Data>) => {
+    onDataChange({ ...data, ...val });
+  };
+
   return (
     <div
       style={{
         borderRadius: '4px',
         border: '1px solid #ccc',
-        paddingLeft: '8px',
-        paddingTop: '8px',
-        paddingRight: '8px',
+        padding: '8px',
         marginTop: '2px',
         marginBottom: '2px',
       }}
@@ -69,32 +71,110 @@ function Btn({ onDataChange, data }: BtnProps) {
           gap: '8px',
         }}
       >
-        <input
-          type="text"
-          placeholder="Knap Tekst"
-          defaultValue={data?.linkText || ''}
-          onBlur={(e) => onDataChange({ ...data, linkText: e.target.value })}
+        <div
           style={{
-            margin: '8px 0',
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
-            width: '46%',
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
           }}
-        />
-        <input
-          type="url"
-          placeholder="URL"
-          defaultValue={data?.url || ''}
-          onBlur={(e) => onDataChange({ ...data, url: e.target.value })}
+        >
+          <p style={{ fontSize: '12px', marginTop: '8px' }}>Knap tekst:</p>
+
+          <input
+            id="text"
+            type="text"
+            placeholder="Knap Tekst"
+            defaultValue={data?.linkText || ''}
+            onChange={(e) => handleChangeValue({ linkText: e.target.value })}
+            style={{
+              padding: '8px',
+              borderRadius: '4px',
+              border: '1px solid #ccc',
+            }}
+          />
+        </div>
+        <div
           style={{
-            margin: '8px 0',
-            padding: '8px',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
-            width: '46%',
+            flex: 1,
+            display: 'flex',
+            flexDirection: 'column',
           }}
-        />
+        >
+          <p style={{ fontSize: '12px', marginTop: '8px' }}>Knap link:</p>
+
+          <input
+            id="url"
+            type="url"
+            placeholder="URL"
+            defaultValue={data?.url || ''}
+            onChange={(e) => handleChangeValue({ url: e.target.value })}
+            style={{
+              padding: '8px',
+              borderRadius: '4px',
+              border: '1px solid #ccc',
+            }}
+          />
+        </div>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          gap: '8px',
+          marginTop: '8px',
+        }}
+      >
+        <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+          <input
+            type="checkbox"
+            id="hasTracking"
+            checked={hasTracking}
+            onChange={(e) => {
+              const checked = e.target.checked;
+              setHasTracking(checked);
+              if (!checked) {
+                handleChangeValue({ trackingLabel: undefined });
+              }
+            }}
+            style={{ marginRight: '4px' }}
+          />
+          Knappen bruger tracking
+        </label>
+      </div>
+      <div
+        style={{
+          paddingTop: '8px',
+          display: hasTracking ? 'flex' : 'none',
+          flexDirection: 'column',
+        }}
+      >
+        <p style={{ fontSize: '12px' }}>Tracking label: </p>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '8px',
+          }}
+        >
+          <input
+            id="label"
+            type="text"
+            placeholder="Tracking label"
+            defaultValue={data?.trackingLabel || ''}
+            onChange={(e) => handleChangeValue({ trackingLabel: e.target.value })}
+            style={{
+              padding: '8px',
+              borderRadius: '4px',
+              border: '1px solid #ccc',
+              width: '46%',
+            }}
+          />
+        </div>
+        <p style={{ fontSize: '11px', marginTop: '4px' }}>
+          Tracking label bruges til at identificere elementet i Plausible Analytics. <br /> Brug
+          f.eks. linkets navn, eller filnavn hvis det er en download. Eksempler: "redbarnet.dk"
+          eller "redbarnet_beskrivelse".
+        </p>
       </div>
     </div>
   );
