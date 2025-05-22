@@ -13,6 +13,7 @@ import Quote from '@editorjs/quote';
 import Raw from '@editorjs/raw';
 import Table from '@editorjs/table';
 import Warning from '@editorjs/warning';
+import { HeaderOne } from '../components/tools/HeaderOne';
 // import ComponentSelectorTool from "editorjs-component-selector";
 
 type ToolOptions = {
@@ -31,6 +32,7 @@ type ToolOptions = {
   delimiter?: boolean;
   inlineCode?: boolean;
   nestedList?: boolean;
+  h_one?: boolean;
 };
 
 type ToolConfig = {
@@ -49,6 +51,7 @@ type ToolConfig = {
   delimiter?: any;
   inlineCode?: any;
   nestedList?: any;
+  h_one?: any;
 };
 
 export const customTools = (options: ToolOptions = {}, config: ToolConfig = {}): {} => {
@@ -162,6 +165,14 @@ export const customTools = (options: ToolOptions = {}, config: ToolConfig = {}):
           inlineCode: {
             class: InlineCode,
             ...(config.inlineCode ? config.inlineCode : {}),
+          },
+        }
+      : {}),
+    ...(options.h_one
+      ? {
+          h_one: {
+            class: HeaderOne,
+            ...(config.h_one ? config.h_one : {}),
           },
         }
       : {}),

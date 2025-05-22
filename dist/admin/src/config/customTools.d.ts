@@ -14,6 +14,7 @@ type ToolOptions = {
     delimiter?: boolean;
     inlineCode?: boolean;
     nestedList?: boolean;
+    h_one?: boolean;
 };
 type ToolConfig = {
     header?: any;
@@ -31,6 +32,7 @@ type ToolConfig = {
     delimiter?: any;
     inlineCode?: any;
     nestedList?: any;
+    h_one?: any;
 };
 export declare const customTools: (options?: ToolOptions, config?: ToolConfig) => {};
 export {};
