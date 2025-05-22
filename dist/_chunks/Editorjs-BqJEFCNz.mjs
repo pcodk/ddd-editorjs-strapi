@@ -5,7 +5,7 @@ import React__default, { useContext, useRef, useCallback, useDebugValue, useEffe
 import { useIntl } from "react-intl";
 import { useFetchClient, useNotification, useStrapiApp } from "@strapi/strapi/admin";
 import ReactDOM from "react-dom";
-import { P as PLUGIN_ID, R as RESOLVE_CONFIG } from "./index-DxapAseS.mjs";
+import { P as PLUGIN_ID, R as RESOLVE_CONFIG } from "./index-BRz6xAgZ.mjs";
 import EditorJS from "@editorjs/editorjs";
 import VocabularyAutocomplete from "editorjs-vocabularytune";
 import styled from "styled-components";
@@ -1091,7 +1091,7 @@ const usePluginConfig = () => {
   return { config, isLoading };
 };
 class HeaderOne {
-  nodes = { holder: null, text: null };
+  nodes = { holder: null, data: null };
   static get toolbox() {
     return {
       title: "H1x",
@@ -1099,19 +1099,22 @@ class HeaderOne {
     };
   }
   constructor({ data }) {
-    this.nodes.text = data || null;
+    this.nodes.data = data || null;
   }
   render() {
     const rootNode = document.createElement("div");
     this.nodes.holder = rootNode;
     const onDataChange = (newText) => {
-      this.nodes.text = newText;
+      this.nodes.data = { text: newText };
     };
-    ReactDOM.render(/* @__PURE__ */ jsx(Btn$1, { onDataChange, data: this.nodes.text }), this.nodes.holder);
+    ReactDOM.render(
+      /* @__PURE__ */ jsx(Btn$1, { onDataChange, data: this.nodes.data?.text ?? null }),
+      this.nodes.holder
+    );
     return this.nodes.holder;
   }
   save() {
-    return this.nodes.text;
+    return this.nodes.data;
   }
 }
 function Btn$1({ onDataChange, data }) {

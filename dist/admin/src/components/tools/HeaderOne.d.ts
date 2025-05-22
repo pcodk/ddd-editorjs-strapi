@@ -1,3 +1,6 @@
+interface Data {
+    text: string;
+}
 export declare class HeaderOne {
     private nodes;
     static get toolbox(): {
@@ -5,8 +8,9 @@ export declare class HeaderOne {
         icon: string;
     };
     constructor({ data }: {
-        data: string;
+        data: Data;
     });
     render(): HTMLElement;
-    save(): string | null;
+    save(): Data | null;
 }
+export {};

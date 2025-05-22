@@ -2,8 +2,12 @@
 
 import ReactDOM from 'react-dom';
 
+interface Data {
+  text: string;
+}
+
 export class HeaderOne {
-  private nodes: { holder: HTMLElement | null; text: string | null } = { holder: null, text: null };
+  private nodes: { holder: HTMLElement | null; data: Data | null } = { holder: null, data: null };
 
   static get toolbox() {
     return {
@@ -12,8 +16,8 @@ export class HeaderOne {
     };
   }
 
-  constructor({ data }: { data: string }) {
-    this.nodes.text = data || null;
+  constructor({ data }: { data: Data }) {
+    this.nodes.data = data || null;
   }
 
   render() {
@@ -21,16 +25,19 @@ export class HeaderOne {
     this.nodes.holder = rootNode;
 
     const onDataChange = (newText: string) => {
-      this.nodes.text = newText;
+      this.nodes.data = { text: newText };
     };
 
-    ReactDOM.render(<Btn onDataChange={onDataChange} data={this.nodes.text} />, this.nodes.holder);
+    ReactDOM.render(
+      <Btn onDataChange={onDataChange} data={this.nodes.data?.text ?? null} />,
+      this.nodes.holder
+    );
 
     return this.nodes.holder;
   }
 
   save() {
-    return this.nodes.text;
+    return this.nodes.data;
   }
 }
 

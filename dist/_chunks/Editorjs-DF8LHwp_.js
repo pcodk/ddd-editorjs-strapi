@@ -6,7 +6,7 @@ const React = require("react");
 const reactIntl = require("react-intl");
 const admin = require("@strapi/strapi/admin");
 const ReactDOM = require("react-dom");
-const index = require("./index-B7KjglHx.js");
+const index = require("./index-mbQFvOx_.js");
 const EditorJS = require("@editorjs/editorjs");
 const VocabularyAutocomplete = require("editorjs-vocabularytune");
 const styled = require("styled-components");
@@ -1132,7 +1132,7 @@ const usePluginConfig = () => {
   return { config, isLoading };
 };
 class HeaderOne {
-  nodes = { holder: null, text: null };
+  nodes = { holder: null, data: null };
   static get toolbox() {
     return {
       title: "H1x",
@@ -1140,19 +1140,22 @@ class HeaderOne {
     };
   }
   constructor({ data }) {
-    this.nodes.text = data || null;
+    this.nodes.data = data || null;
   }
   render() {
     const rootNode = document.createElement("div");
     this.nodes.holder = rootNode;
     const onDataChange = (newText) => {
-      this.nodes.text = newText;
+      this.nodes.data = { text: newText };
     };
-    ReactDOM__default.default.render(/* @__PURE__ */ jsxRuntime.jsx(Btn$1, { onDataChange, data: this.nodes.text }), this.nodes.holder);
+    ReactDOM__default.default.render(
+      /* @__PURE__ */ jsxRuntime.jsx(Btn$1, { onDataChange, data: this.nodes.data?.text ?? null }),
+      this.nodes.holder
+    );
     return this.nodes.holder;
   }
   save() {
-    return this.nodes.text;
+    return this.nodes.data;
   }
 }
 function Btn$1({ onDataChange, data }) {
