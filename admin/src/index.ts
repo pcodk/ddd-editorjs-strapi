@@ -37,6 +37,15 @@ export default {
             },
             items: [
               {
+                name: 'options.h_one',
+                type: 'checkbox',
+                defaultValue: false,
+                intlLabel: {
+                  id: 'editorjs.tools.settings.h_one',
+                  defaultMessage: 'H1 enabled',
+                },
+              },
+              {
                 name: 'options.header',
                 type: 'checkbox',
                 defaultValue: true,
