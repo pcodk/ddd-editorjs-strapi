@@ -1,6 +1,6 @@
 {
   "name": "ddd-editorjs-strapi",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "EditorJS plugin for Strapi 5",
   "keywords": [],
   "license": "MIT",

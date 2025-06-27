@@ -1,9 +1,9 @@
 interface Data {
     linkText?: string;
     url?: string;
+    trackingLabel?: string;
 }
 export declare class LinkButton {
-    private data;
     private nodes;
     static get toolbox(): {
         title: string;

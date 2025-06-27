@@ -1,31 +1,72 @@
-import { jsx, jsxs, Fragment } from "react/jsx-runtime";
-import { Box, Field, Flex } from "@strapi/design-system";
-import * as React from "react";
-import React__default, { useContext, useRef, useCallback, useDebugValue, useEffect, useState, memo } from "react";
-import { useIntl } from "react-intl";
-import { useFetchClient, useNotification, useStrapiApp } from "@strapi/strapi/admin";
-import ReactDOM from "react-dom";
-import { P as PLUGIN_ID, R as RESOLVE_CONFIG } from "./index-BRz6xAgZ.mjs";
-import EditorJS from "@editorjs/editorjs";
-import VocabularyAutocomplete from "editorjs-vocabularytune";
-import styled from "styled-components";
-import CheckList from "@editorjs/checklist";
-import Code from "@editorjs/code";
-import Delimiter from "@editorjs/delimiter";
-import Embed from "@editorjs/embed";
-import Header from "@editorjs/header";
-import InlineCode from "@editorjs/inline-code";
-import LinkTool from "@editorjs/link";
-import Paragraph from "@editorjs/paragraph";
-import Marker from "@editorjs/marker";
-import NestedList from "@editorjs/nested-list";
-import Quote from "@editorjs/quote";
-import Raw from "@editorjs/raw";
-import Table from "@editorjs/table";
-import Warning from "@editorjs/warning";
-import AttachesTool from "@editorjs/attaches";
-import Image from "@editorjs/image";
-import axios from "axios";
+"use strict";
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+const jsxRuntime = require("react/jsx-runtime");
+const designSystem = require("@strapi/design-system");
+const React = require("react");
+const reactIntl = require("react-intl");
+const admin = require("@strapi/strapi/admin");
+const ReactDOM = require("react-dom");
+const index = require("./index-Dx7Kjydl.js");
+const EditorJS = require("@editorjs/editorjs");
+const VocabularyAutocomplete = require("editorjs-vocabularytune");
+const styled = require("styled-components");
+const CheckList = require("@editorjs/checklist");
+const Code = require("@editorjs/code");
+const Delimiter = require("@editorjs/delimiter");
+const Embed = require("@editorjs/embed");
+const Header = require("@editorjs/header");
+const InlineCode = require("@editorjs/inline-code");
+const LinkTool = require("@editorjs/link");
+const Paragraph = require("@editorjs/paragraph");
+const Marker = require("@editorjs/marker");
+const NestedList = require("@editorjs/nested-list");
+const Quote = require("@editorjs/quote");
+const Raw = require("@editorjs/raw");
+const Table = require("@editorjs/table");
+const Warning = require("@editorjs/warning");
+const AttachesTool = require("@editorjs/attaches");
+const Image = require("@editorjs/image");
+const axios = require("axios");
+const _interopDefault = (e) => e && e.__esModule ? e : { default: e };
+function _interopNamespace(e) {
+  if (e && e.__esModule) return e;
+  const n = Object.create(null, { [Symbol.toStringTag]: { value: "Module" } });
+  if (e) {
+    for (const k in e) {
+      if (k !== "default") {
+        const d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: () => e[k]
+        });
+      }
+    }
+  }
+  n.default = e;
+  return Object.freeze(n);
+}
+const React__namespace = /* @__PURE__ */ _interopNamespace(React);
+const ReactDOM__default = /* @__PURE__ */ _interopDefault(ReactDOM);
+const EditorJS__default = /* @__PURE__ */ _interopDefault(EditorJS);
+const VocabularyAutocomplete__default = /* @__PURE__ */ _interopDefault(VocabularyAutocomplete);
+const styled__default = /* @__PURE__ */ _interopDefault(styled);
+const CheckList__default = /* @__PURE__ */ _interopDefault(CheckList);
+const Code__default = /* @__PURE__ */ _interopDefault(Code);
+const Delimiter__default = /* @__PURE__ */ _interopDefault(Delimiter);
+const Embed__default = /* @__PURE__ */ _interopDefault(Embed);
+const Header__default = /* @__PURE__ */ _interopDefault(Header);
+const InlineCode__default = /* @__PURE__ */ _interopDefault(InlineCode);
+const LinkTool__default = /* @__PURE__ */ _interopDefault(LinkTool);
+const Paragraph__default = /* @__PURE__ */ _interopDefault(Paragraph);
+const Marker__default = /* @__PURE__ */ _interopDefault(Marker);
+const NestedList__default = /* @__PURE__ */ _interopDefault(NestedList);
+const Quote__default = /* @__PURE__ */ _interopDefault(Quote);
+const Raw__default = /* @__PURE__ */ _interopDefault(Raw);
+const Table__default = /* @__PURE__ */ _interopDefault(Table);
+const Warning__default = /* @__PURE__ */ _interopDefault(Warning);
+const AttachesTool__default = /* @__PURE__ */ _interopDefault(AttachesTool);
+const Image__default = /* @__PURE__ */ _interopDefault(Image);
+const axios__default = /* @__PURE__ */ _interopDefault(axios);
 var shim = { exports: {} };
 var useSyncExternalStoreShim_production = {};
 /**
@@ -41,13 +82,13 @@ var hasRequiredUseSyncExternalStoreShim_production;
 function requireUseSyncExternalStoreShim_production() {
   if (hasRequiredUseSyncExternalStoreShim_production) return useSyncExternalStoreShim_production;
   hasRequiredUseSyncExternalStoreShim_production = 1;
-  var React2 = React__default;
+  var React2 = React__namespace.default;
   function is(x, y) {
     return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
   }
-  var objectIs = "function" === typeof Object.is ? Object.is : is, useState2 = React2.useState, useEffect2 = React2.useEffect, useLayoutEffect = React2.useLayoutEffect, useDebugValue2 = React2.useDebugValue;
+  var objectIs = "function" === typeof Object.is ? Object.is : is, useState = React2.useState, useEffect = React2.useEffect, useLayoutEffect = React2.useLayoutEffect, useDebugValue = React2.useDebugValue;
   function useSyncExternalStore$2(subscribe, getSnapshot) {
-    var value = getSnapshot(), _useState = useState2({ inst: { value, getSnapshot } }), inst = _useState[0].inst, forceUpdate = _useState[1];
+    var value = getSnapshot(), _useState = useState({ inst: { value, getSnapshot } }), inst = _useState[0].inst, forceUpdate = _useState[1];
     useLayoutEffect(
       function() {
         inst.value = value;
@@ -56,7 +97,7 @@ function requireUseSyncExternalStoreShim_production() {
       },
       [subscribe, value, getSnapshot]
     );
-    useEffect2(
+    useEffect(
       function() {
         checkIfSnapshotChanged(inst) && forceUpdate({ inst });
         return subscribe(function() {
@@ -65,7 +106,7 @@ function requireUseSyncExternalStoreShim_production() {
       },
       [subscribe]
     );
-    useDebugValue2(value);
+    useDebugValue(value);
     return value;
   }
   function checkIfSnapshotChanged(inst) {
@@ -114,7 +155,7 @@ function requireUseSyncExternalStoreShim_development() {
           "The result of getSnapshot should be cached to avoid an infinite loop"
         ), didWarnUncachedGetSnapshot = true);
       }
-      cachedValue = useState2({
+      cachedValue = useState({
         inst: { value, getSnapshot }
       });
       var inst = cachedValue[0].inst, forceUpdate = cachedValue[1];
@@ -126,7 +167,7 @@ function requireUseSyncExternalStoreShim_development() {
         },
         [subscribe, value, getSnapshot]
       );
-      useEffect2(
+      useEffect(
         function() {
           checkIfSnapshotChanged(inst) && forceUpdate({ inst });
           return subscribe(function() {
@@ -135,7 +176,7 @@ function requireUseSyncExternalStoreShim_development() {
         },
         [subscribe]
       );
-      useDebugValue2(value);
+      useDebugValue(value);
       return value;
     }
     function checkIfSnapshotChanged(inst) {
@@ -152,7 +193,7 @@ function requireUseSyncExternalStoreShim_development() {
       return getSnapshot();
     }
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-    var React2 = React__default, objectIs = "function" === typeof Object.is ? Object.is : is, useState2 = React2.useState, useEffect2 = React2.useEffect, useLayoutEffect = React2.useLayoutEffect, useDebugValue2 = React2.useDebugValue, didWarnOld18Alpha = false, didWarnUncachedGetSnapshot = false, shim2 = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
+    var React2 = React__namespace.default, objectIs = "function" === typeof Object.is ? Object.is : is, useState = React2.useState, useEffect = React2.useEffect, useLayoutEffect = React2.useLayoutEffect, useDebugValue = React2.useDebugValue, didWarnOld18Alpha = false, didWarnUncachedGetSnapshot = false, shim2 = "undefined" === typeof window || "undefined" === typeof window.document || "undefined" === typeof window.document.createElement ? useSyncExternalStore$1 : useSyncExternalStore$2;
     useSyncExternalStoreShim_development.useSyncExternalStore = void 0 !== React2.useSyncExternalStore ? React2.useSyncExternalStore : shim2;
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
   }();
@@ -179,13 +220,13 @@ var hasRequiredWithSelector_production;
 function requireWithSelector_production() {
   if (hasRequiredWithSelector_production) return withSelector_production;
   hasRequiredWithSelector_production = 1;
-  var React2 = React__default, shim2 = shimExports;
+  var React2 = React__namespace.default, shim2 = shimExports;
   function is(x, y) {
     return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
   }
-  var objectIs = "function" === typeof Object.is ? Object.is : is, useSyncExternalStore = shim2.useSyncExternalStore, useRef2 = React2.useRef, useEffect2 = React2.useEffect, useMemo = React2.useMemo, useDebugValue2 = React2.useDebugValue;
+  var objectIs = "function" === typeof Object.is ? Object.is : is, useSyncExternalStore = shim2.useSyncExternalStore, useRef = React2.useRef, useEffect = React2.useEffect, useMemo = React2.useMemo, useDebugValue = React2.useDebugValue;
   withSelector_production.useSyncExternalStoreWithSelector = function(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
-    var instRef = useRef2(null);
+    var instRef = useRef(null);
     if (null === instRef.current) {
       var inst = { hasValue: false, value: null };
       instRef.current = inst;
@@ -225,14 +266,14 @@ function requireWithSelector_production() {
       [getSnapshot, getServerSnapshot, selector, isEqual]
     );
     var value = useSyncExternalStore(subscribe, instRef[0], instRef[1]);
-    useEffect2(
+    useEffect(
       function() {
         inst.hasValue = true;
         inst.value = value;
       },
       [value]
     );
-    useDebugValue2(value);
+    useDebugValue(value);
     return value;
   };
   return withSelector_production;
@@ -256,9 +297,9 @@ function requireWithSelector_development() {
       return x === y && (0 !== x || 1 / x === 1 / y) || x !== x && y !== y;
     }
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-    var React2 = React__default, shim2 = shimExports, objectIs = "function" === typeof Object.is ? Object.is : is, useSyncExternalStore = shim2.useSyncExternalStore, useRef2 = React2.useRef, useEffect2 = React2.useEffect, useMemo = React2.useMemo, useDebugValue2 = React2.useDebugValue;
+    var React2 = React__namespace.default, shim2 = shimExports, objectIs = "function" === typeof Object.is ? Object.is : is, useSyncExternalStore = shim2.useSyncExternalStore, useRef = React2.useRef, useEffect = React2.useEffect, useMemo = React2.useMemo, useDebugValue = React2.useDebugValue;
     withSelector_development.useSyncExternalStoreWithSelector = function(subscribe, getSnapshot, getServerSnapshot, selector, isEqual) {
-      var instRef = useRef2(null);
+      var instRef = useRef(null);
       if (null === instRef.current) {
         var inst = { hasValue: false, value: null };
         instRef.current = inst;
@@ -299,14 +340,14 @@ function requireWithSelector_development() {
         [getSnapshot, getServerSnapshot, selector, isEqual]
       );
       var value = useSyncExternalStore(subscribe, instRef[0], instRef[1]);
-      useEffect2(
+      useEffect(
         function() {
           inst.hasValue = true;
           inst.value = value;
         },
         [value]
       );
-      useDebugValue2(value);
+      useDebugValue(value);
       return value;
     };
     "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
@@ -326,22 +367,22 @@ const gT = typeof globalThis !== "undefined" ? globalThis : (
 );
 function getContext() {
   var _gT$ContextKey;
-  if (!React.createContext) return {};
+  if (!React__namespace.createContext) return {};
   const contextMap = (_gT$ContextKey = gT[ContextKey]) != null ? _gT$ContextKey : gT[ContextKey] = /* @__PURE__ */ new Map();
-  let realContext = contextMap.get(React.createContext);
+  let realContext = contextMap.get(React__namespace.createContext);
   if (!realContext) {
-    realContext = React.createContext(null);
+    realContext = React__namespace.createContext(null);
     if (process.env.NODE_ENV !== "production") {
       realContext.displayName = "ReactRedux";
     }
-    contextMap.set(React.createContext, realContext);
+    contextMap.set(React__namespace.createContext, realContext);
   }
   return realContext;
 }
 const ReactReduxContext = /* @__PURE__ */ getContext();
 function createReduxContextHook(context = ReactReduxContext) {
   return function useReduxContext2() {
-    const contextValue = useContext(context);
+    const contextValue = React.useContext(context);
     if (process.env.NODE_ENV !== "production" && !contextValue) {
       throw new Error("could not find react-redux context value; please ensure the component is wrapped in a <Provider>");
     }
@@ -385,8 +426,8 @@ function createSelectorHook(context = ReactReduxContext) {
       stabilityCheck: globalStabilityCheck,
       noopCheck: globalNoopCheck
     } = useReduxContext$1();
-    const firstRun = useRef(true);
-    const wrappedSelector = useCallback({
+    const firstRun = React.useRef(true);
+    const wrappedSelector = React.useCallback({
       [selector.name](state) {
         const selected = selector(state);
         if (process.env.NODE_ENV !== "production") {
@@ -432,7 +473,7 @@ function createSelectorHook(context = ReactReduxContext) {
       }
     }[selector.name], [selector, globalStabilityCheck, stabilityCheck]);
     const selectedState = useSyncExternalStoreWithSelector(subscription.addNestedSub, store.getState, getServerState || store.getState, wrappedSelector, equalityFn);
-    useDebugValue(selectedState);
+    React.useDebugValue(selectedState);
     return selectedState;
   };
 }
@@ -618,7 +659,7 @@ function requireReactIs_development$1() {
       var ContextProvider = REACT_PROVIDER_TYPE;
       var Element = REACT_ELEMENT_TYPE;
       var ForwardRef = REACT_FORWARD_REF_TYPE;
-      var Fragment2 = REACT_FRAGMENT_TYPE;
+      var Fragment = REACT_FRAGMENT_TYPE;
       var Lazy = REACT_LAZY_TYPE;
       var Memo = REACT_MEMO_TYPE;
       var Portal = REACT_PORTAL_TYPE;
@@ -677,7 +718,7 @@ function requireReactIs_development$1() {
       reactIs_development$1.ContextProvider = ContextProvider;
       reactIs_development$1.Element = Element;
       reactIs_development$1.ForwardRef = ForwardRef;
-      reactIs_development$1.Fragment = Fragment2;
+      reactIs_development$1.Fragment = Fragment;
       reactIs_development$1.Lazy = Lazy;
       reactIs_development$1.Memo = Memo;
       reactIs_development$1.Portal = Portal;
@@ -928,7 +969,7 @@ function requireReactIs_development() {
       var ContextProvider = REACT_PROVIDER_TYPE;
       var Element = REACT_ELEMENT_TYPE;
       var ForwardRef = REACT_FORWARD_REF_TYPE;
-      var Fragment2 = REACT_FRAGMENT_TYPE;
+      var Fragment = REACT_FRAGMENT_TYPE;
       var Lazy = REACT_LAZY_TYPE;
       var Memo = REACT_MEMO_TYPE;
       var Portal = REACT_PORTAL_TYPE;
@@ -996,7 +1037,7 @@ function requireReactIs_development() {
       reactIs_development.ContextProvider = ContextProvider;
       reactIs_development.Element = Element;
       reactIs_development.ForwardRef = ForwardRef;
-      reactIs_development.Fragment = Fragment2;
+      reactIs_development.Fragment = Fragment;
       reactIs_development.Lazy = Lazy;
       reactIs_development.Memo = Memo;
       reactIs_development.Portal = Portal;
@@ -1059,17 +1100,17 @@ const useDispatch = /* @__PURE__ */ createDispatchHook();
 initializeUseSelector(withSelectorExports.useSyncExternalStoreWithSelector);
 const usePluginConfig = () => {
   const dispatch = useDispatch();
-  const fetchClient = useFetchClient();
-  const { toggleNotification } = useNotification();
-  const { config, isLoading } = useSelector((state) => state[`${PLUGIN_ID}_config`]);
-  useEffect(() => {
+  const fetchClient = admin.useFetchClient();
+  const { toggleNotification } = admin.useNotification();
+  const { config, isLoading } = useSelector((state) => state[`${index.PLUGIN_ID}_config`]);
+  React.useEffect(() => {
     if (!isLoading && !!config) {
       return;
     }
     const abortController = new AbortController();
     const fetchData = async () => {
       try {
-        const endpoint = `/${PLUGIN_ID}/config`;
+        const endpoint = `/${index.PLUGIN_ID}/config`;
         const { data } = await fetchClient.get(endpoint, {
           signal: abortController.signal
         });
@@ -1085,7 +1126,7 @@ const usePluginConfig = () => {
         }
       }
     };
-    fetchData().then((data) => dispatch({ type: RESOLVE_CONFIG, data }));
+    fetchData().then((data) => dispatch({ type: index.RESOLVE_CONFIG, data }));
     return () => abortController.abort();
   }, [dispatch, fetchClient, toggleNotification]);
   return { config, isLoading };
@@ -1107,8 +1148,8 @@ class HeaderOne {
     const onDataChange = (newText) => {
       this.nodes.data = { text: newText };
     };
-    ReactDOM.render(
-      /* @__PURE__ */ jsx(Btn$1, { onDataChange, data: this.nodes.data?.text ?? null }),
+    ReactDOM__default.default.render(
+      /* @__PURE__ */ jsxRuntime.jsx(Btn$1, { onDataChange, data: this.nodes.data?.text ?? null }),
       this.nodes.holder
     );
     return this.nodes.holder;
@@ -1121,7 +1162,7 @@ function Btn$1({ onDataChange, data }) {
   const handleChangeValue = (val) => {
     onDataChange(val);
   };
-  return /* @__PURE__ */ jsxs(
+  return /* @__PURE__ */ jsxRuntime.jsxs(
     "div",
     {
       style: {
@@ -1134,8 +1175,8 @@ function Btn$1({ onDataChange, data }) {
         marginBottom: "2px"
       },
       children: [
-        /* @__PURE__ */ jsx("h4", { children: "H1x" }),
-        /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntime.jsx("h4", { children: "H1x" }),
+        /* @__PURE__ */ jsxRuntime.jsx(
           "div",
           {
             style: {
@@ -1143,7 +1184,7 @@ function Btn$1({ onDataChange, data }) {
               flexDirection: "row",
               gap: "8px"
             },
-            children: /* @__PURE__ */ jsx(
+            children: /* @__PURE__ */ jsxRuntime.jsx(
               "input",
               {
                 type: "text",
@@ -1169,17 +1210,17 @@ const customTools = (options = {}, config = {}) => {
   return {
     ...options.header ? {
       header: {
-        class: Header,
+        class: Header__default.default,
         ...config.header ? config.header : {}
       }
     } : {},
     paragraph: {
-      class: Paragraph,
+      class: Paragraph__default.default,
       ...config.paragraph ? config.paragraph : {}
     },
     ...options.list ? {
       list: {
-        class: NestedList,
+        class: NestedList__default.default,
         inlineToolbar: true,
         config: {
           defaultStyle: "ordered"
@@ -1189,67 +1230,67 @@ const customTools = (options = {}, config = {}) => {
     } : {},
     ...options.checklist ? {
       checklist: {
-        class: CheckList,
+        class: CheckList__default.default,
         ...config.checklist ? config.checklist : {}
       }
     } : {},
     ...options.embed ? {
       embed: {
-        class: Embed,
+        class: Embed__default.default,
         ...config.embed ? config.embed : {}
       }
     } : {},
     ...options.table ? {
       table: {
-        class: Table,
+        class: Table__default.default,
         ...config.table ? config.table : {}
       }
     } : {},
     ...options.warning ? {
       warning: {
-        class: Warning,
+        class: Warning__default.default,
         ...config.warning ? config.warning : {}
       }
     } : {},
     ...options.code ? {
       code: {
-        class: Code,
+        class: Code__default.default,
         ...config.code ? config.code : {}
       }
     } : {},
     ...options.link_tool ? {
       link_tool: {
-        class: LinkTool,
+        class: LinkTool__default.default,
         ...config.link_tool ? config.link_tool : {}
       }
     } : {},
     ...options.raw ? {
       raw: {
-        class: Raw,
+        class: Raw__default.default,
         ...config.raw ? config.raw : {}
       }
     } : {},
     ...options.quote ? {
       quote: {
-        class: Quote,
+        class: Quote__default.default,
         ...config.quote ? config.quote : {}
       }
     } : {},
     ...options.marker ? {
       marker: {
-        class: Marker,
+        class: Marker__default.default,
         ...config.marker ? config.marker : {}
       }
     } : {},
     ...options.delimiter ? {
       delimiter: {
-        class: Delimiter,
+        class: Delimiter__default.default,
         ...config.delimiter ? config.delimiter : {}
       }
     } : {},
     ...options.inlineCode ? {
       inlineCode: {
-        class: InlineCode,
+        class: InlineCode__default.default,
         ...config.inlineCode ? config.inlineCode : {}
       }
     } : {},
@@ -1263,42 +1304,42 @@ const customTools = (options = {}, config = {}) => {
 };
 const requiredTools = {
   image: {
-    class: Image,
+    class: Image__default.default,
     config: {
       field: "files.image",
       additionalRequestData: {
         data: JSON.stringify({})
       },
       endpoints: {
-        byUrl: `/api/${PLUGIN_ID}/image/byUrl`
+        byUrl: `/api/${index.PLUGIN_ID}/image/byUrl`
       },
       uploader: {
         async uploadByFile(file) {
           const formData = new FormData();
           formData.append("data", JSON.stringify({}));
           formData.append("files.image", file);
-          const { data } = await axios.post(`/api/${PLUGIN_ID}/image/byFile`, formData);
+          const { data } = await axios__default.default.post(`/api/${index.PLUGIN_ID}/image/byFile`, formData);
           return data;
         }
       }
     }
   },
   attaches: {
-    class: AttachesTool,
+    class: AttachesTool__default.default,
     config: {
       field: "files.image",
       additionalRequestData: {
         data: JSON.stringify({})
       },
       endpoints: {
-        byUrl: `/api/${PLUGIN_ID}/image/byUrl`
+        byUrl: `/api/${index.PLUGIN_ID}/image/byUrl`
       },
       uploader: {
         async uploadByFile(file) {
           const formData = new FormData();
           formData.append("data", JSON.stringify({}));
           formData.append("files.image", file);
-          const { data } = await axios.post(`/api/${PLUGIN_ID}/image/byFile`, formData);
+          const { data } = await axios__default.default.post(`/api/${index.PLUGIN_ID}/image/byFile`, formData);
           return data;
         }
       }
@@ -1366,8 +1407,8 @@ const MediaLibComponent = ({
   onToggle,
   allowedTypes
 }) => {
-  const { components } = useStrapiApp("library", (app) => app);
-  const [data, setData] = React.useState(null);
+  const { components } = admin.useStrapiApp("library", (app) => app);
+  const [data, setData] = React__namespace.useState(null);
   const MediaLibraryDialog = components["media-library"];
   const handleInputChange = (files) => {
     if (files) {
@@ -1389,7 +1430,7 @@ const MediaLibComponent = ({
   if (!isOpen) {
     return null;
   }
-  return /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsxRuntime.jsx(
     MediaLibraryDialog,
     {
       allowedTypes,
@@ -1410,7 +1451,7 @@ const getToggleFunc = ({
     openStateSetter((prev) => !prev);
   };
 };
-const changeFunc = ({ indexStateSetter, editor, data, index }) => {
+const changeFunc = ({ indexStateSetter, editor, data, index: index2 }) => {
   let insertedBlocksCount = 0;
   data.forEach((entry) => {
     if (!entry.mime.includes("image")) {
@@ -1432,17 +1473,17 @@ const changeFunc = ({ indexStateSetter, editor, data, index }) => {
       withBackground: false,
       stretched: false
     };
-    editor.blocks.insert(newBlockType, newBlockData, {}, index + insertedBlocksCount, true);
+    editor.blocks.insert(newBlockType, newBlockData, {}, index2 + insertedBlocksCount, true);
     insertedBlocksCount++;
   });
-  editor.blocks.delete(index + insertedBlocksCount);
+  editor.blocks.delete(index2 + insertedBlocksCount);
   indexStateSetter(-1);
 };
 const changeFuncAttaches = ({
   indexStateSetter,
   editor,
   data,
-  index
+  index: index2
 }) => {
   let insertedBlocksCount = 0;
   data.forEach((entry) => {
@@ -1457,10 +1498,10 @@ const changeFuncAttaches = ({
       caption: "",
       title: entry.alt
     };
-    editor.blocks.insert(newBlockType, newBlockData, {}, index + insertedBlocksCount, true);
+    editor.blocks.insert(newBlockType, newBlockData, {}, index2 + insertedBlocksCount, true);
     insertedBlocksCount++;
   });
-  editor.blocks.delete(index + insertedBlocksCount);
+  editor.blocks.delete(index2 + insertedBlocksCount);
   indexStateSetter(-1);
 };
 const EMOJI_LIST = [
@@ -1958,8 +1999,8 @@ class EmojiInlineTool {
   }
   createDropdown() {
     const node = document.createElement("div");
-    ReactDOM.render(
-      /* @__PURE__ */ jsx(
+    ReactDOM__default.default.render(
+      /* @__PURE__ */ jsxRuntime.jsx(
         EmojiPopup,
         {
           onSetEmoji: (em) => {
@@ -1979,13 +2020,13 @@ class EmojiInlineTool {
   }
 }
 function EmojiPopup({ onSetEmoji }) {
-  const [selected, setSelected] = useState();
-  const [open, setOpen] = useState(false);
-  return /* @__PURE__ */ jsxs(Fragment, { children: [
-    /* @__PURE__ */ jsx(HoverButton, { onClick: () => setOpen(true) }),
-    open && ReactDOM.createPortal(
-      /* @__PURE__ */ jsx("div", { style: modalParentStyle, children: /* @__PURE__ */ jsxs("div", { style: modalChildStyle, children: [
-        /* @__PURE__ */ jsx(
+  const [selected, setSelected] = React.useState();
+  const [open, setOpen] = React.useState(false);
+  return /* @__PURE__ */ jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntime.jsx(HoverButton, { onClick: () => setOpen(true) }),
+    open && ReactDOM__default.default.createPortal(
+      /* @__PURE__ */ jsxRuntime.jsx("div", { style: modalParentStyle, children: /* @__PURE__ */ jsxRuntime.jsxs("div", { style: modalChildStyle, children: [
+        /* @__PURE__ */ jsxRuntime.jsx(
           "button",
           {
             onClick: () => setOpen(false),
@@ -1993,8 +2034,8 @@ function EmojiPopup({ onSetEmoji }) {
             children: "Luk"
           }
         ),
-        /* @__PURE__ */ jsx("h3", { style: { position: "absolute", top: 10, left: 10 }, children: "Vælg emoji" }),
-        /* @__PURE__ */ jsx("div", { style: emojiContainerStyle, children: EMOJI_LIST.map((emoji, ind) => /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntime.jsx("h3", { style: { position: "absolute", top: 10, left: 10 }, children: "Vælg emoji" }),
+        /* @__PURE__ */ jsxRuntime.jsx("div", { style: emojiContainerStyle, children: EMOJI_LIST.map((emoji, ind) => /* @__PURE__ */ jsxRuntime.jsx(
           "button",
           {
             onClick: () => setSelected(emoji),
@@ -2002,11 +2043,11 @@ function EmojiPopup({ onSetEmoji }) {
               ...singleEmojiStyle,
               backgroundColor: selected === emoji ? "#42FD61" : "white"
             },
-            children: /* @__PURE__ */ jsx("p", { style: { fontSize: 20 }, className: "emoji", children: emoji })
+            children: /* @__PURE__ */ jsxRuntime.jsx("p", { style: { fontSize: 20 }, className: "emoji", children: emoji })
           },
           ind
         )) }),
-        /* @__PURE__ */ jsx(
+        /* @__PURE__ */ jsxRuntime.jsx(
           "button",
           {
             onClick: () => {
@@ -2023,8 +2064,8 @@ function EmojiPopup({ onSetEmoji }) {
   ] });
 }
 function HoverButton({ onClick }) {
-  const [hover, setHover] = useState(false);
-  return /* @__PURE__ */ jsx(
+  const [hover, setHover] = React.useState(false);
+  return /* @__PURE__ */ jsxRuntime.jsx(
     "button",
     {
       className: "emoji",
@@ -2093,8 +2134,7 @@ const singleEmojiStyle = {
   cursor: "pointer"
 };
 class LinkButton {
-  data = {};
-  nodes = { holder: null };
+  nodes = { holder: null, data: {} };
   static get toolbox() {
     return {
       title: "LinkButton",
@@ -2102,40 +2142,39 @@ class LinkButton {
     };
   }
   constructor({ data }) {
-    this.data = data;
+    this.nodes.data = data;
   }
   render() {
     const rootNode = document.createElement("div");
     this.nodes.holder = rootNode;
     const onDataChange = (newData) => {
-      this.data = {
-        ...this.data,
-        ...newData
-      };
+      this.nodes.data = newData;
     };
-    ReactDOM.render(/* @__PURE__ */ jsx(Btn, { onDataChange, data: this.data }), rootNode);
+    ReactDOM__default.default.render(/* @__PURE__ */ jsxRuntime.jsx(Btn, { onDataChange, data: this.nodes.data }), rootNode);
     return this.nodes.holder;
   }
   save() {
-    return this.data;
+    return this.nodes.data;
   }
 }
 function Btn({ onDataChange, data }) {
-  return /* @__PURE__ */ jsxs(
+  const [hasTracking, setHasTracking] = React__namespace.default.useState(!!data.trackingLabel);
+  const handleChangeValue = (val) => {
+    onDataChange({ ...data, ...val });
+  };
+  return /* @__PURE__ */ jsxRuntime.jsxs(
     "div",
     {
       style: {
         borderRadius: "4px",
         border: "1px solid #ccc",
-        paddingLeft: "8px",
-        paddingTop: "8px",
-        paddingRight: "8px",
+        padding: "8px",
         marginTop: "2px",
         marginBottom: "2px"
       },
       children: [
-        /* @__PURE__ */ jsx("h4", { children: "Knap med link" }),
-        /* @__PURE__ */ jsxs(
+        /* @__PURE__ */ jsxRuntime.jsx("h4", { children: "Knap med link" }),
+        /* @__PURE__ */ jsxRuntime.jsxs(
           "div",
           {
             style: {
@@ -2144,38 +2183,136 @@ function Btn({ onDataChange, data }) {
               gap: "8px"
             },
             children: [
-              /* @__PURE__ */ jsx(
-                "input",
+              /* @__PURE__ */ jsxRuntime.jsxs(
+                "div",
                 {
-                  type: "text",
-                  placeholder: "Knap Tekst",
-                  defaultValue: data?.linkText || "",
-                  onBlur: (e) => onDataChange({ ...data, linkText: e.target.value }),
                   style: {
-                    margin: "8px 0",
-                    padding: "8px",
-                    borderRadius: "4px",
-                    border: "1px solid #ccc",
-                    width: "46%"
-                  }
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column"
+                  },
+                  children: [
+                    /* @__PURE__ */ jsxRuntime.jsx("p", { style: { fontSize: "12px", marginTop: "8px" }, children: "Knap tekst:" }),
+                    /* @__PURE__ */ jsxRuntime.jsx(
+                      "input",
+                      {
+                        id: "text",
+                        type: "text",
+                        placeholder: "Knap Tekst",
+                        defaultValue: data?.linkText || "",
+                        onChange: (e) => handleChangeValue({ linkText: e.target.value }),
+                        style: {
+                          padding: "8px",
+                          borderRadius: "4px",
+                          border: "1px solid #ccc"
+                        }
+                      }
+                    )
+                  ]
                 }
               ),
-              /* @__PURE__ */ jsx(
-                "input",
+              /* @__PURE__ */ jsxRuntime.jsxs(
+                "div",
                 {
-                  type: "url",
-                  placeholder: "URL",
-                  defaultValue: data?.url || "",
-                  onBlur: (e) => onDataChange({ ...data, url: e.target.value }),
                   style: {
-                    margin: "8px 0",
-                    padding: "8px",
-                    borderRadius: "4px",
-                    border: "1px solid #ccc",
-                    width: "46%"
-                  }
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column"
+                  },
+                  children: [
+                    /* @__PURE__ */ jsxRuntime.jsx("p", { style: { fontSize: "12px", marginTop: "8px" }, children: "Knap link:" }),
+                    /* @__PURE__ */ jsxRuntime.jsx(
+                      "input",
+                      {
+                        id: "url",
+                        type: "url",
+                        placeholder: "URL",
+                        defaultValue: data?.url || "",
+                        onChange: (e) => handleChangeValue({ url: e.target.value }),
+                        style: {
+                          padding: "8px",
+                          borderRadius: "4px",
+                          border: "1px solid #ccc"
+                        }
+                      }
+                    )
+                  ]
                 }
               )
+            ]
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsx(
+          "div",
+          {
+            style: {
+              display: "flex",
+              flexDirection: "row",
+              gap: "8px",
+              marginTop: "8px"
+            },
+            children: /* @__PURE__ */ jsxRuntime.jsxs("label", { style: { display: "flex", alignItems: "center", cursor: "pointer" }, children: [
+              /* @__PURE__ */ jsxRuntime.jsx(
+                "input",
+                {
+                  type: "checkbox",
+                  id: "hasTracking",
+                  checked: hasTracking,
+                  onChange: (e) => {
+                    const checked = e.target.checked;
+                    setHasTracking(checked);
+                    if (!checked) {
+                      handleChangeValue({ trackingLabel: void 0 });
+                    }
+                  },
+                  style: { marginRight: "4px" }
+                }
+              ),
+              "Knappen bruger tracking"
+            ] })
+          }
+        ),
+        /* @__PURE__ */ jsxRuntime.jsxs(
+          "div",
+          {
+            style: {
+              paddingTop: "8px",
+              display: hasTracking ? "flex" : "none",
+              flexDirection: "column"
+            },
+            children: [
+              /* @__PURE__ */ jsxRuntime.jsx("p", { style: { fontSize: "12px" }, children: "Tracking label: " }),
+              /* @__PURE__ */ jsxRuntime.jsx(
+                "div",
+                {
+                  style: {
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "8px"
+                  },
+                  children: /* @__PURE__ */ jsxRuntime.jsx(
+                    "input",
+                    {
+                      id: "label",
+                      type: "text",
+                      placeholder: "Tracking label",
+                      defaultValue: data?.trackingLabel || "",
+                      onChange: (e) => handleChangeValue({ trackingLabel: e.target.value }),
+                      style: {
+                        padding: "8px",
+                        borderRadius: "4px",
+                        border: "1px solid #ccc",
+                        width: "46%"
+                      }
+                    }
+                  )
+                }
+              ),
+              /* @__PURE__ */ jsxRuntime.jsxs("p", { style: { fontSize: "11px", marginTop: "4px" }, children: [
+                "Tracking label bruges til at identificere elementet i Plausible Analytics. ",
+                /* @__PURE__ */ jsxRuntime.jsx("br", {}),
+                ' Brug f.eks. linkets navn, eller filnavn hvis det er en download. Eksempler: "redbarnet.dk" eller "redbarnet_beskrivelse".'
+              ] })
             ]
           }
         )
@@ -2193,34 +2330,34 @@ let EditorjsFieldNew = ({
   labelAction
 }) => {
   const renderTime = (/* @__PURE__ */ new Date()).getTime();
-  const editorContainerRef = useRef(null);
-  const editorInstanceRef = useRef(null);
-  const [newEditorInstance, setnewEditorInstance] = useState();
-  const [mediaLibBlockIndex, setMediaLibBlockIndex] = useState(-1);
-  const [isMediaLibOpen, setI] = useState(false);
+  const editorContainerRef = React.useRef(null);
+  const editorInstanceRef = React.useRef(null);
+  const [newEditorInstance, setnewEditorInstance] = React.useState();
+  const [mediaLibBlockIndex, setMediaLibBlockIndex] = React.useState(-1);
+  const [isMediaLibOpen, setI] = React.useState(false);
   const setIsMediaLibOpen = (a) => {
     const timeDiff = (/* @__PURE__ */ new Date()).getTime() - renderTime;
     if (timeDiff > 1e3) {
       setI(a);
     }
   };
-  const [mediaLibAttachesBlockIndex, setMediaLibAttachesBlockIndex] = useState(-1);
-  const [isMediaLibAttachesOpen, setIsMediaLibAttachesOpen] = useState(false);
-  const mediaLibToggleFunc = useCallback(
+  const [mediaLibAttachesBlockIndex, setMediaLibAttachesBlockIndex] = React.useState(-1);
+  const [isMediaLibAttachesOpen, setIsMediaLibAttachesOpen] = React.useState(false);
+  const mediaLibToggleFunc = React.useCallback(
     getToggleFunc({
       openStateSetter: setIsMediaLibOpen,
       indexStateSetter: setMediaLibBlockIndex
     }),
     []
   );
-  const mediaLibAttachesToggleFunc = useCallback(
+  const mediaLibAttachesToggleFunc = React.useCallback(
     getToggleFunc({
       openStateSetter: setIsMediaLibAttachesOpen,
       indexStateSetter: setMediaLibAttachesBlockIndex
     }),
     []
   );
-  const handleMediaLibChange = useCallback(
+  const handleMediaLibChange = React.useCallback(
     (data) => {
       changeFunc({
         indexStateSetter: setMediaLibBlockIndex,
@@ -2232,7 +2369,7 @@ let EditorjsFieldNew = ({
     },
     [mediaLibBlockIndex, newEditorInstance]
   );
-  const handleMediaLibAttachesChange = useCallback(
+  const handleMediaLibAttachesChange = React.useCallback(
     (data) => {
       changeFuncAttaches({
         indexStateSetter: setMediaLibAttachesBlockIndex,
@@ -2262,17 +2399,17 @@ let EditorjsFieldNew = ({
       }
     } : {}
   };
-  useEffect(() => {
+  React.useEffect(() => {
     if (!editorInstanceRef.current && editorContainerRef.current) {
-      const editor = new EditorJS({
+      const editor = new EditorJS__default.default({
         holder: editorContainerRef.current,
         tools: {
           linkbtn: LinkButton,
           emomo: EmojiInlineTool,
           vocabulary: {
-            class: VocabularyAutocomplete,
+            class: VocabularyAutocomplete__default.default,
             config: {
-              endpoint: `/${PLUGIN_ID}/vocabulary-lookup`,
+              endpoint: `/${index.PLUGIN_ID}/vocabulary-lookup`,
               queryParam: "query"
               // change this to the one from strapi api
             }
@@ -2317,8 +2454,8 @@ let EditorjsFieldNew = ({
       }
     };
   }, [config]);
-  return /* @__PURE__ */ jsxs(EdWrap, { children: [
-    /* @__PURE__ */ jsx(
+  return /* @__PURE__ */ jsxRuntime.jsxs(EdWrap, { children: [
+    /* @__PURE__ */ jsxRuntime.jsx(
       SEditor,
       {
         style: {
@@ -2328,7 +2465,7 @@ let EditorjsFieldNew = ({
         ref: editorContainerRef
       }
     ),
-    /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsxRuntime.jsx(
       MediaLibComponent,
       {
         isOpen: isMediaLibOpen,
@@ -2337,7 +2474,7 @@ let EditorjsFieldNew = ({
         allowedTypes: ["images"]
       }
     ),
-    /* @__PURE__ */ jsx(
+    /* @__PURE__ */ jsxRuntime.jsx(
       MediaLibComponent,
       {
         isOpen: isMediaLibAttachesOpen,
@@ -2348,11 +2485,11 @@ let EditorjsFieldNew = ({
     )
   ] });
 };
-EditorjsFieldNew = memo(EditorjsFieldNew);
-const SEditor = styled.div`
+EditorjsFieldNew = React.memo(EditorjsFieldNew);
+const SEditor = styled__default.default.div`
   width: 100%;
 `;
-const EdWrap = styled.div`
+const EdWrap = styled__default.default.div`
   width: 100%;
 `;
 const EditorjsField = EditorjsFieldNew;
@@ -2367,8 +2504,8 @@ const loadCSS = (href) => {
   });
 };
 function useLoadCss() {
-  const [loadedCss, setLoadedCss] = useState(false);
-  useEffect(() => {
+  const [loadedCss, setLoadedCss] = React.useState(false);
+  React.useEffect(() => {
     loadCSS("/editorjsStyles.css").then(() => {
       setLoadedCss(true);
     }).catch((error) => {
@@ -2378,7 +2515,7 @@ function useLoadCss() {
   }, []);
   return { loadedCss };
 }
-const SStyleWrapper = styled(Box)`
+const SStyleWrapper = styled__default.default(designSystem.Box)`
   width: 100%;
 
   .codex-editor__redactor {
@@ -2608,7 +2745,7 @@ const SStyleWrapper = styled(Box)`
     border: 1px solid ${({ theme }) => theme.colors.neutral200};
   }
 `;
-const Editorjs = React__default.forwardRef(
+const Editorjs = React__namespace.default.forwardRef(
   ({
     name,
     description,
@@ -2622,11 +2759,11 @@ const Editorjs = React__default.forwardRef(
     error
   }, ref) => {
     const { loadedCss } = useLoadCss();
-    const { formatMessage } = useIntl();
+    const { formatMessage } = reactIntl.useIntl();
     const { config, isLoading } = usePluginConfig();
-    const [uniqueKey, setUniqueKey] = useState(null);
-    const [transitionEnded, setTransitionEnded] = useState(false);
-    const nodeRef = useRef(null);
+    const [uniqueKey, setUniqueKey] = React.useState(null);
+    const [transitionEnded, setTransitionEnded] = React.useState(false);
+    const nodeRef = React.useRef(null);
     const createKeyFromURL = () => {
       const url = new URL(window.location.href);
       const locale = url.searchParams.get("plugins[i18n][locale]");
@@ -2642,7 +2779,7 @@ const Editorjs = React__default.forwardRef(
       const key = createKeyFromURL();
       setUniqueKey(key);
     };
-    useEffect(() => {
+    React.useEffect(() => {
       const handleTransitionEnd = () => {
         setTransitionEnded(true);
       };
@@ -2661,28 +2798,28 @@ const Editorjs = React__default.forwardRef(
         observer.disconnect();
       };
     }, []);
-    useEffect(() => {
+    React.useEffect(() => {
       if (transitionEnded && value) {
         updateKey();
         setTransitionEnded(false);
       }
     }, [transitionEnded, value]);
     if (!loadedCss) return null;
-    return /* @__PURE__ */ jsx(
+    return /* @__PURE__ */ jsxRuntime.jsx(
       SStyleWrapper,
       {
         ref: nodeRef,
         className: error && error !== "" ? "error" : null,
-        children: /* @__PURE__ */ jsx(
-          Field.Root,
+        children: /* @__PURE__ */ jsxRuntime.jsx(
+          designSystem.Field.Root,
           {
             id: name,
             name,
             hint: description && formatMessage(description),
             required: attribute.required,
             error,
-            children: config && !isLoading ? /* @__PURE__ */ jsxs(
-              Flex,
+            children: config && !isLoading ? /* @__PURE__ */ jsxRuntime.jsxs(
+              designSystem.Flex,
               {
                 direction: {
                   initial: "column"
@@ -2691,8 +2828,8 @@ const Editorjs = React__default.forwardRef(
                   gap: "4px"
                 },
                 children: [
-                  /* @__PURE__ */ jsx(
-                    Field.Label,
+                  /* @__PURE__ */ jsxRuntime.jsx(
+                    designSystem.Field.Label,
                     {
                       action: labelAction,
                       style: {
@@ -2701,7 +2838,7 @@ const Editorjs = React__default.forwardRef(
                       children: "Brødtekst"
                     }
                   ),
-                  /* @__PURE__ */ jsx(
+                  /* @__PURE__ */ jsxRuntime.jsx(
                     EditorjsField,
                     {
                       intlLabel,
@@ -2718,8 +2855,8 @@ const Editorjs = React__default.forwardRef(
                       config
                     }
                   ),
-                  /* @__PURE__ */ jsx(Field.Hint, {}),
-                  /* @__PURE__ */ jsx(Field.Error, {})
+                  /* @__PURE__ */ jsxRuntime.jsx(designSystem.Field.Hint, {}),
+                  /* @__PURE__ */ jsxRuntime.jsx(designSystem.Field.Error, {})
                 ]
               }
             ) : null
@@ -2730,6 +2867,4 @@ const Editorjs = React__default.forwardRef(
     );
   }
 );
-export {
-  Editorjs
-};
+exports.Editorjs = Editorjs;
