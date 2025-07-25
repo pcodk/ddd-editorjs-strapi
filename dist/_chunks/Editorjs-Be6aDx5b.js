@@ -6,7 +6,7 @@ const React = require("react");
 const reactIntl = require("react-intl");
 const admin = require("@strapi/strapi/admin");
 const ReactDOM = require("react-dom");
-const index = require("./index-DWUGLK39.js");
+const index = require("./index-Bzjw5Aba.js");
 const EditorJS = require("@editorjs/editorjs");
 const VocabularyAutocomplete = require("editorjs-vocabularytune");
 const styled = require("styled-components");
@@ -2750,6 +2750,7 @@ const Editorjs = React__namespace.default.forwardRef(
     name,
     description,
     intlLabel,
+    label,
     onChange,
     value,
     disabled,
@@ -2828,17 +2829,14 @@ const Editorjs = React__namespace.default.forwardRef(
                   gap: "4px"
                 },
                 children: [
-                  /* @__PURE__ */ jsxRuntime.jsxs(
+                  /* @__PURE__ */ jsxRuntime.jsx(
                     designSystem.Field.Label,
                     {
                       action: labelAction,
                       style: {
                         alignSelf: "flex-start"
                       },
-                      children: [
-                        "Brødtekst",
-                        intlLabel
-                      ]
+                      children: label || "Brødtekst"
                     }
                   ),
                   /* @__PURE__ */ jsxRuntime.jsx(

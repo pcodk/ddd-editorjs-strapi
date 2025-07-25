@@ -12,6 +12,7 @@ interface IEditorjs {
   attribute: { required: boolean; options: { [key: string]: unknown } };
   name: string;
   description?: MessageDescriptor;
+  label?: string;
   disabled?: boolean;
   error?: string;
   labelAction?: React.ReactNode;
@@ -27,6 +28,7 @@ export const Editorjs = React.forwardRef(
       name,
       description,
       intlLabel,
+      label,
       onChange,
       value,
       disabled,
@@ -126,8 +128,7 @@ export const Editorjs = React.forwardRef(
                 }}
               >
                 {/* {formatMessage(intlLabel)} */}
-                Brødtekst
-                {intlLabel}
+                {label || 'Brødtekst'}
               </Field.Label>
 
               <EditorjsField

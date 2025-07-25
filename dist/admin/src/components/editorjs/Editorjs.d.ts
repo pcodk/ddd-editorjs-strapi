@@ -17,6 +17,7 @@ interface IEditorjs {
     };
     name: string;
     description?: MessageDescriptor;
+    label?: string;
     disabled?: boolean;
     error?: string;
     labelAction?: React.ReactNode;

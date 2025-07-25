@@ -5,7 +5,7 @@ import React__default, { useContext, useRef, useCallback, useDebugValue, useEffe
 import { useIntl } from "react-intl";
 import { useFetchClient, useNotification, useStrapiApp } from "@strapi/strapi/admin";
 import ReactDOM from "react-dom";
-import { P as PLUGIN_ID, R as RESOLVE_CONFIG } from "./index-CckCOdcT.mjs";
+import { P as PLUGIN_ID, R as RESOLVE_CONFIG } from "./index-Dh6L6q7n.mjs";
 import EditorJS from "@editorjs/editorjs";
 import VocabularyAutocomplete from "editorjs-vocabularytune";
 import styled from "styled-components";
@@ -2709,6 +2709,7 @@ const Editorjs = React__default.forwardRef(
     name,
     description,
     intlLabel,
+    label,
     onChange,
     value,
     disabled,
@@ -2787,17 +2788,14 @@ const Editorjs = React__default.forwardRef(
                   gap: "4px"
                 },
                 children: [
-                  /* @__PURE__ */ jsxs(
+                  /* @__PURE__ */ jsx(
                     Field.Label,
                     {
                       action: labelAction,
                       style: {
                         alignSelf: "flex-start"
                       },
-                      children: [
-                        "Brødtekst",
-                        intlLabel
-                      ]
+                      children: label || "Brødtekst"
                     }
                   ),
                   /* @__PURE__ */ jsx(
