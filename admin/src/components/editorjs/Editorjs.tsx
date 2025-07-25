@@ -127,6 +127,7 @@ export const Editorjs = React.forwardRef(
               >
                 {/* {formatMessage(intlLabel)} */}
                 Brødtekst
+                {intlLabel}
               </Field.Label>
 
               <EditorjsField
