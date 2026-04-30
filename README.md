@@ -16,6 +16,21 @@ This will build the plugin and create a new dist folder.
 
 4. It seems you have to delete the plugin (package.json) from the strapi admin, and then re-add it.
 
+## How to test locally
+use `yalc` for local test. Make sure it is installed. 
+
+    npm i -g yalc
+    ./yarn install
+    ./yarn build
+    ./yalc publish  // adds to local store.
+
+Now install in CMS for test
+
+    cd .../cms
+    yalc add ddd-editorjs-strapi-plugin
+    yarn install
+    yarn build
+
 ## Good reads for the complications this plugin has faced:
 
 Reason why its here, and not in the RB repo:  
@@ -26,7 +41,7 @@ https://github.com/strapi/strapi/issues/22162
 
 There has been an update for how plugins should fetch in strapi - it currently works without, but we should keep an eye on it:  
 @AVM: I think the new pattern for authorized requests are:  
-https://gitlab.peytz.dk/flex/red-barnet-dannelse/-/blob/main/cms/src/plugins/multi-domain/admin/src/api/permissions.ts#L6
+See project file: /cms/src/plugins/multi-domain/admin/src/api/permissions.ts#L6
 
 ## Custom tools for editor js:
 

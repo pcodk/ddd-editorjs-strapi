@@ -1,6 +1,5 @@
 import type { Core } from '@strapi/strapi';
 import ogs from 'open-graph-scraper';
-// import { parseMultipartData } from "@strapi/utils";
 import axios from 'axios';
 import fs from 'fs';
 import { LocalFileData } from 'get-file-object-from-local-path';
@@ -97,7 +96,6 @@ export default ({ strapi }: { strapi: Core.Strapi }) => ({
   byFile: async (ctx) => {
     console.log('byFile');
     try {
-      // const { files } = parseMultipartData(ctx);
       const { files } = ctx;
 
       const [uploadedFile] = await strapi

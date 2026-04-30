@@ -417,7 +417,7 @@ const index = {
         defaultMessage: "An Editor field"
       },
       components: {
-        Input: async () => import("./Editorjs-dzLrQkcL.mjs").then((module) => ({
+        Input: async () => import("./Editorjs-D37iQ8-m.mjs").then((module) => ({
           default: module.Editorjs
         }))
       },

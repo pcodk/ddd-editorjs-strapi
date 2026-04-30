@@ -6,7 +6,7 @@ const React = require("react");
 const reactIntl = require("react-intl");
 const admin = require("@strapi/strapi/admin");
 const ReactDOM = require("react-dom");
-const index = require("./index-Bzjw5Aba.js");
+const index = require("./index-BXDVxXZh.js");
 const EditorJS = require("@editorjs/editorjs");
 const VocabularyAutocomplete = require("editorjs-vocabularytune");
 const styled = require("styled-components");
@@ -2492,7 +2492,6 @@ const SEditor = styled__default.default.div`
 const EdWrap = styled__default.default.div`
   width: 100%;
 `;
-const EditorjsField = EditorjsFieldNew;
 const loadCSS = (href) => {
   return new Promise((resolve, reject) => {
     const link = document.createElement("link");
@@ -2840,7 +2839,7 @@ const Editorjs = React__namespace.default.forwardRef(
                     }
                   ),
                   /* @__PURE__ */ jsxRuntime.jsx(
-                    EditorjsField,
+                    EditorjsFieldNew,
                     {
                       intlLabel,
                       onChange,
